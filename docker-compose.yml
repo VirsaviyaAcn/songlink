@@ -14,4 +14,4 @@ web:
 db:
   image: mongo
   volumes:
-    -   /mongo/data/db:/data/db
+    - /mongo/data/db:/data/db
