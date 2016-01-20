@@ -1,4 +1,3 @@
-var spotify = require('spotify');
 var request = require('request');
 var queries = require('../queries');
 
@@ -35,21 +34,27 @@ function buildSearchResults(song, callback) {
 
 function fetchSearchResults(song, query, queryType, callback) {
 
-  spotify.search({type: 'track', query: query}, function(err, data) {
-
+  request(makeSearchUrlWIthQuery(query), function (err, response, body) {
+    
     song.results.spotify[queryType] = {};
     song.results.spotify[queryType].query = query;
+
+    try {
+      body = JSON.parse(body);
+    } catch (e) {
+      console.error(e)
+      song.results.spotify[queryType].results = [];
+    }
 
     if (err) {
       console.error(err);
       song.results.spotify[queryType].results = [];
     } else {
-      var results = data.tracks && data.tracks.items.length ? data.tracks.items.slice(0, 5) : [];
+      var results = body.tracks && body.tracks.items.length ? body.tracks.items.slice(0, 5) : [];
       song.results.spotify[queryType].results = results;
     }
 
-    callback(null, song);
-
+    callback(null, song)
   });
 }
 
@@ -138,6 +143,10 @@ function lookupSongById(song, callback) {
 
 function makeLookupUrlWIthId(id) {
   return 'https://api.spotify.com/v1/tracks/' + id;
+}
+
+function makeSearchUrlWIthQuery(query) {
+  return 'https://api.spotify.com/v1/search?type=track&q=' + query;
 }
 
 function makeUriFromId(spotifyId) {
