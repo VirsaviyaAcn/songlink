@@ -1,5 +1,5 @@
 {
-  "name": "music-share",
+  "name": "songlink",
   "version": "1.0.0",
   "description": "share music to anyone on any platform",
   "main": "server.js",
@@ -29,11 +29,10 @@
     "test": "mocha test/models test/controllers test/server"
   },
   "dependencies": {
-    "babel-core": "^5.8.3",
-    "babel-loader": "^5.3.2",
-    "babel-plugin-react-display-name": "^2.0.0",
-    "babel-plugin-react-transform": "^1.1.0",
-    "babel-runtime": "^5.8.20",
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "bluebird": "^3.1.1",
     "body-parser": "^1.14.1",
     "chai": "^3.4.1",
@@ -56,22 +55,20 @@
     "react-router": "^1.0.0",
     "react-social": "^1.0.4",
     "react-tooltip": "^0.9.5",
-    "react-transform-hmr": "^1.0.1",
     "redux": "^3.0.4",
     "redux-logger": "^2.0.4",
     "redux-thunk": "^1.0.0",
     "request": "^2.67.0",
     "shelljs": "^0.5.3",
-    "spotify": "^0.3.0",
     "supertest": "^1.1.0",
     "uglify-js": "^2.6.1",
     "underscore": "^1.8.3",
     "webpack": "^1.12.9",
-    "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.5.0",
     "youtube-node": "^1.3.0"
   },
   "devDependencies": {
-    "node-sass": "^3.4.2"
+    "babel-preset-react-hmre": "^1.0.1",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.5.0"
   }
 }
