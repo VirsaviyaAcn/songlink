@@ -21,7 +21,7 @@ class Preferences extends Component {
     this.setState({ updated: true })
     setTimeout(() => {
       this.setState({ updated: false })
-    }.bind(this), 2000)
+    }, 2000)
   }
 
   handleClick(e) {
