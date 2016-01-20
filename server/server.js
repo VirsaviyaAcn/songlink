@@ -1,23 +1,18 @@
-require('dotenv').load();
-
 var compress = require('compression');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var db = require('./config/db.config');
 var express = require('express');
 var routes = require('./routes');
-// var cors = require('cors');
 
 var enableCORS = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
  
-    // intercept OPTIONS method
     if ('OPTIONS' == req.method) {
       res.send(200);
-    }
-    else {
+    } else {
       next();
     }
 };
@@ -26,7 +21,6 @@ db();
 
 var app = express();
 
-// app.use(cors());
 
 app.use(enableCORS);
 
@@ -43,7 +37,7 @@ if (process.env.NODE_ENV === 'development') {
 
 routes(app);
 
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 app.listen(port, function(error) {
   if (error) throw error;

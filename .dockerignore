@@ -1,0 +1,8 @@
+.gitignore
+.eslintrc
+.travis.yml
+*.md
+node_modules
+Dockerfile
+docker-compose.yml
+*.development.config.js

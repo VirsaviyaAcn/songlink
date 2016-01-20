@@ -1,7 +1,5 @@
 module.exports = function () {
   var mongoose = require('mongoose');
-
-  var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/songlink';
-
-  mongoose.connect(mongoUrl);
+  var url = process.env.NODE_ENV === 'production' ? 'mongodb://db/songlink' : 'mongodb://localhost/songlink';
+  mongoose.connect(url);
 }

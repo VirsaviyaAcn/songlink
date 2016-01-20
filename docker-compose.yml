@@ -1,0 +1,17 @@
+web:
+  build: .
+  restart: always
+  ports: 
+    - '3000:3000'
+  links: 
+    - db
+  environment:
+    - NODE_ENV=production
+    - YOUTUBE_KEY
+    - GOOGLE_MUSIC_EMAIL
+    - GOOGLE_MUSIC_PASSWORD
+  command: npm start
+db:
+  image: mongo
+  volumes:
+    -   /mongo/data/db:/data/db

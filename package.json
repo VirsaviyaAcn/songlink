@@ -14,8 +14,7 @@
   },
   "scripts": {
     "dbCrawl": "node dbCrawl/dbCrawl.js",
-    "clean": "rm -rf dist",
-    "postclean": "mkdir dist && mkdir dist/scripts && mkdir dist/assets",
+    "clean": "rm -rf dist && mkdir dist && mkdir dist/scripts && mkdir dist/assets",
     "js:copy": "cp -a server/templates/linkTemplate/scripts/. dist/scripts/",
     "js:uglify": "uglifyjs server/templates/linkTemplate/scripts/listenerTools.js -o dist/scripts/listenerTools.js",
     "js:webpack": "NODE_ENV=production webpack --config webpack.production.config.js",
@@ -23,12 +22,11 @@
     "css:sass:prod": "node-sass sass/main.scss dist/main.css --output-style compressed",
     "css:sass:dev": "node-sass sass/main.scss dist/main.css",
     "css:sass:watch": "nodemon -e scss --watch ./sass -x \"npm run css:sass:dev\"",
-    "serve": "NODE_ENV=development npm run clean && npm run js:copy && npm run images:copy && npm run css:sass:dev",
+    "serve": "npm run clean && npm run js:copy && npm run images:copy && npm run css:sass:dev",
     "postserve": "npm run css:sass:watch & nodemon --debug server/server.js --ignore components --ignore containers --ignore sass",
-    "serve:prod": "npm run clean && npm run js:uglify && npm run images:copy && npm run css:sass:prod && npm run js:webpack",
-    "postinstall": "npm run serve:prod",
-    "start": "NODE_ENV=production node server/server.js",
-    "test": "NODE_ENV=production mocha test/models test/controllers test/server"
+    "compile": "npm run clean && npm run js:uglify && npm run images:copy && npm run css:sass:prod && npm run js:webpack",
+    "start": "node server/server.js",
+    "test": "mocha test/models test/controllers test/server"
   },
   "dependencies": {
     "babel-core": "^5.8.3",
@@ -42,8 +40,6 @@
     "classnames": "^2.2.1",
     "compression": "^1.6.0",
     "cookie-parser": "^1.4.0",
-    "cors": "^2.7.1",
-    "dotenv": "^1.2.0",
     "express": "^4.13.3",
     "history": "^1.13.1",
     "jquery": "^2.1.4",
