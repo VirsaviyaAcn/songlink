@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Song = require('../../server/db/models/song');
 var controller = require('../../server/db/controllers/songController');
 
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/songlink';
+var mongoUrl = process.env.NODE_ENV === 'production' ? 'mongodb://db/songlink' : 'mongodb://localhost/songlink';
 
 var clearDB = function (done) {
   mongoose.connection.collections['songs'].remove(done);
