@@ -3,5 +3,7 @@ sut:
   command: npm test
   links: 
     - db
+  environment:
+    - NODE_ENV=production
 db:
   image: mongo
