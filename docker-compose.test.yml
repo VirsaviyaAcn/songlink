@@ -1,0 +1,3 @@
+sut:
+  image: this
+  command: npm test
