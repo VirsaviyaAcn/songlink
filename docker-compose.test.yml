@@ -1,3 +1,7 @@
 sut:
   image: this
   command: npm test
+  links: 
+    -db
+db:
+  image: mongo
