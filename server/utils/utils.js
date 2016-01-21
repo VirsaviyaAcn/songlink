@@ -98,7 +98,7 @@ function makeSongLinkObject(song) {
 }
 
 function makeSongLinkUrl(hash_id) {
-  var host = process.env.APP_HOST || 'localhost:3000';
+  var host = process.env.TUTUM_SERVICE_FQDN || process.env.APP_HOST || 'localhost:3000';
   return 'http://' + host + '/' + hash_id;
 }
 
