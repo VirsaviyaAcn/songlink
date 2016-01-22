@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export IMAGE_NAME=${IMAGE_NAME:0:-6}:$GIT_TAG
+#export IMAGE_NAME=${IMAGE_NAME:0:${#IMAGE_NAME} - 6}$GIT_TAG
