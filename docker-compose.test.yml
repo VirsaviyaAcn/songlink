@@ -2,8 +2,8 @@ sut:
   image: this
   command: npm test
   links: 
-    - db
+    - mongodb
   environment:
     - NODE_ENV=production
-db:
+mongodb:
   image: mongo

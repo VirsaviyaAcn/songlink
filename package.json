@@ -13,7 +13,6 @@
     "node": "5.0.0"
   },
   "scripts": {
-    "dbCrawl": "node dbCrawl/dbCrawl.js",
     "clean": "rm -rf dist && mkdir dist && mkdir dist/scripts && mkdir dist/assets",
     "js:copy": "cp -a server/templates/linkTemplate/scripts/. dist/scripts/",
     "js:uglify": "uglifyjs server/templates/linkTemplate/scripts/listenerTools.js -o dist/scripts/listenerTools.js",

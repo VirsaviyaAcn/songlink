@@ -1,0 +1,12 @@
+mongodb:
+  image: 'mongo'
+  volumes:
+    - /mongo/data/db:/data/db
+mongodbbackup:
+  image: 'tutum/mongodb-backup'
+  environment:
+    - MONGODB_DB=songlink
+  links:
+    - mongodb
+  volumes:
+    - /Users/Kurt/mongodbbackup:/mongodbbackup

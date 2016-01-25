@@ -4,14 +4,14 @@ web:
   ports: 
     - '3000:3000'
   links: 
-    - db
+    - mongodb
   environment:
     - NODE_ENV=production
     - YOUTUBE_KEY
     - GOOGLE_MUSIC_EMAIL
     - GOOGLE_MUSIC_PASSWORD
   command: npm start
-db:
+mongodb:
   image: mongo
   volumes:
     - /mongo/data/db:/data/db
